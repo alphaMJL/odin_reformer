@@ -43,7 +43,7 @@
 <%= form_with(model: User.new, local: true) do |form| %>
 
   <%= form.label :username, 'Username:' %>
-  <%= form.text_field :username, required: true %><br><br>
+  <%= form.text_field :username, value: 'enter username here', required: true %><br><br>
 
   <%= form.label :email, 'Email:' %>
   <%= form.email_field :email, required: true %><br><br>
