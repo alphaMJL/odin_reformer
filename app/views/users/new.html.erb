@@ -1,11 +1,9 @@
 
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Registration Form</title>
-</head>
-<body>
     <h1>User Registration</h1>
+
+     <h1>Hard coded html form</h1>
+
+   
     <form action="/users" method="POST" accept-charset="UTF-8">
         <input type="hidden" name="authenticity_token" value="">
         <label for="username">Username:</label>
@@ -19,5 +17,39 @@
 
         <input type="submit" value="Register">
     </form>
-</body>
-</html>
+
+
+ <h1>With rails form tags</h1>
+
+<%= form_tag('/users', method: 'POST') do %>
+  
+
+  <%= label_tag('username', 'Username:') %>
+  <%= text_field_tag('user[username]', nil, required: true) %><br><br>
+
+  <%= label_tag('email', 'Email:') %>
+  <%= email_field_tag('user[email]', nil, required: true) %><br><br>
+
+  <%= label_tag('password', 'Password:') %>
+  <%= password_field_tag('user[password]', nil, required: true) %><br><br>
+
+  <%= submit_tag('Register') %>
+<% end %>
+
+
+
+<h1>With rails form_with</h1>
+
+<%= form_with(model: User.new, local: true) do |form| %>
+
+  <%= form.label :username, 'Username:' %>
+  <%= form.text_field :username, required: true %><br><br>
+
+  <%= form.label :email, 'Email:' %>
+  <%= form.email_field :email, required: true %><br><br>
+
+  <%= form.label :password, 'Password:' %>
+  <%= form.password_field :password, required: true %><br><br>
+
+  <%= form.submit 'Register' %>
+<% end %>
