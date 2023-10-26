@@ -9,7 +9,8 @@ and having each successfully interact with the model.
 Relevant code can be found in:
   
 views/users/new.html.erb  
-controllers/users_controllers.rb
+views/users/edit.html.erb  
+controllers/users_controllers.rb  
   
-The only view is the new.html  
+The only view is the new.html and edit.html  
 Validations are set to only precence: true
